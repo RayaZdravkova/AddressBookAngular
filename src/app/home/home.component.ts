@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
    * @type {string[]}
    */
   columnsToDisplay = ['firstName', 'lastName', 'gender', 'country',
-                      'city', 'street', 'details'];
+    'city', 'street', 'details'];
   /**
    * Constructs HomeComponent with necessary services.
    * @constructor
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
    * @param {FormBuilder} formBuilder - The form builder service to create FormGroup.
    */
   constructor(private homeService: HomeService, private dialog: MatDialog,
-     private http: HttpClient, private formBuilder: FormBuilder){
+    private http: HttpClient, private formBuilder: FormBuilder) {
     /**
      * Initialize the filtrationForm FormGroup.
      * @type {FormGroup}
@@ -51,45 +51,52 @@ export class HomeComponent implements OnInit {
      * @property {FormControl} city - Control for city field.
      * @property {FormControl} gender - Control for gender field.
      */
-      this.filtrationForm = this.formBuilder.group({
-        name: "",
-        country: "",
-        city: "",
-        gender: ""
-      });
-     }
+    this.filtrationForm = this.formBuilder.group({
+      name: "",
+      country: "",
+      city: "",
+      gender: ""
+    });
+  }
+  /**
+   * Gets the name from the filtration form.
+   * @returns {string} The name value from the filtration form.
+  */
+  get name() {
+    return this.filtrationForm.value['name'] as string;
+  }
+  /**
+  * Gets the city from the filtration form.
+  * @returns {string} The city value from the filtration form.
+  */
+  get city() {
+    return this.filtrationForm.value['city'] as string;
+  }
+  /**
+  * Gets the country from the filtration form.
+  * @returns {string} The country value from the filtration form.
+  */
+  get country() {
+    return this.filtrationForm.value['country'] as string;
+  }
+  /**
+  * Gets the gender from the filtration form.
+  * @returns {number} The gender value from the filtration form.
+  */
+  get gender() {
+    return this.filtrationForm.value['gender'] as number;
+  }
   /**
    * Angular lifecycle hook - executed after component initialization.
    */
-  ngOnInit(){
-    this.fetchUsers();
-  }
-  /**
-   * Fetches users from HomeService.
-   */
-  fetchUsers(): void {
-    this.homeService.getUsers().subscribe(
-       /**
-       * Success callback function.
-       * @param {any} data - The retrieved data.
-       */
-      (data) => {
-        this.usersDataArray = data.content;
-      },
-        /**
-       * Error callback function.
-       * @param {any} error - The encountered error.
-       */
-      (error) => {
-        console.error('Error fetching users:', error);
-      }
-    );
+  ngOnInit() {
+    this.searchUsers();
   }
   /**
    * Opens dialog to display user details.
    * @param {User} user - The user object whose details to display.
    */
-  onShowDetails(user: User){
+  onShowDetails(user: User) {
     this.dialog.open(DetailDialogComponent, {
       height: '570px',
       width: '500px',
@@ -100,6 +107,21 @@ export class HomeComponent implements OnInit {
    * Searches for users based on filtrationForm values.
    */
   searchUsers() {
-    // console.log(this.filtrationForm.value);
-}
+    this.homeService.getFilteredUsers(this.name, this.city, this.country, this.gender).subscribe(
+      /**
+      * Success callback function.
+      * @param {any} data - The retrieved data.
+      */
+      (data) => {
+        this.usersDataArray = data.content;
+      },
+      /**
+     * Error callback function.
+     * @param {any} error - The encountered error.
+     */
+      (error) => {
+        console.error('Error fetching users:', error);
+      }
+    );
+  }
 }

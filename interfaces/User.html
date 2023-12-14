@@ -133,6 +133,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Represents a user in the system.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -243,6 +250,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The cell phone number of the user.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -276,6 +289,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The email address of the user.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -309,6 +328,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The gender of the user.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -342,6 +367,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The ID information of the user.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -375,6 +406,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The location details of the user.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -408,6 +445,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The name details of the user.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -441,6 +484,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The nationality of the user.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -474,6 +523,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>The phone number of the user.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -507,6 +562,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>URLs for the user&#39;s pictures in different sizes.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -515,31 +576,75 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface User {
+    /**
+     * The cell phone number of the user.
+     * @type {string}
+     */
     cell: string;
+  
+    /**
+     * The email address of the user.
+     * @type {string}
+     */
     email: string;
+  
+    /**
+     * The gender of the user.
+     * @type {string}
+     */
     gender: string;
-    id: { name: string, value: string };
+  
+    /**
+     * The ID information of the user.
+     * @type {{ name: string, value: string }}
+     */
+    id: { name: string; value: string };
+  
+    /**
+     * The location details of the user.
+     * @type {{ street: { name: string, number: number }, city: string, state: string, country: string, postcode: string }}
+     */
     location: {
-        street: { name: string, number: number },
-        city: string;
-        state: string;
-        country: string;
-        postcode: string;
+      street: { name: string; number: number };
+      city: string;
+      state: string;
+      country: string;
+      postcode: string;
     };
+  
+    /**
+     * The name details of the user.
+     * @type {{ first: string, last: string, title: string }}
+     */
     name: {
-        first: string;
-        last: string;
-        title: string;
+      first: string;
+      last: string;
+      title: string;
     };
+  
+    /**
+     * The nationality of the user.
+     * @type {string}
+     */
     nat: string;
+  
+    /**
+     * The phone number of the user.
+     * @type {string}
+     */
     phone: string;
+  
+    /**
+     * URLs for the user&#x27;s pictures in different sizes.
+     * @type {{ large: string, medium: string, thumbnail: string }}
+     */
     picture: {
-        large: string;
-        medium: string;
-        thumbnail: string;
+      large: string;
+      medium: string;
+      thumbnail: string;
     };
-}
-</code></pre>
+  }
+  </code></pre>
     </div>
 </div>
 
