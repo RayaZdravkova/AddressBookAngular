@@ -2,6 +2,23 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
+Pre-requirements:  
+1. Visual Studio Code 
+2. Node.js and npm (command for npm: npm install -g npm) 
+3. Angular CLI (command: npm install -g @angular/cli)
+
+Steps to get started: 
+1. Clone or Download the Angular Project 
+2. Open terminal in the project directory 
+3. Install Dependencies (command: npm install)
+4. Run the Angular App (command: ng serve) 
+
+Running the .NET API and AddressBookAngular Together: 
+1. Keep API Running: Ensure your .NET API is running locally on its assigned port. 
+2. Keep Angular Server Running: Keep your Angular development server running (ng serve) to serve the frontend. 
+3. Access the Angular App: Visit http://localhost:4200 in your browser to interact with your Angular app that communicates with the local .NET API. 
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
