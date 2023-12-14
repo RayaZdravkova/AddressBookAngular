@@ -1,0 +1,60 @@
+<div id="detailForm">
+    <h1 id="detailModalTitle">Additional information</h1>
+    <form [formGroup]="detailForm" class="myform">
+        <div class="myInputs">
+            
+            <div class="flex-container">
+                <div class="photo-container">
+                    <img [src]="photoUrl" alt="User Photo" />
+                </div>
+                <div class="input-container">
+                    <mat-form-field class="example-full-width">
+                        <mat-label class="formInput">Full name</mat-label>
+                        <input class="formInput" matInput formControlName="name" />
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label class="formInput">Nationality</mat-label>
+                        <input class="formInput" matInput formControlName="nationality" />
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="input-container">
+                <mat-form-field class="example-full-width">
+                    <mat-label class="formInput">Country</mat-label>
+                    <input class="formInput" matInput formControlName="country" />
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label class="formInput">State</mat-label>
+                    <input class="formInput" matInput formControlName="state" />
+                </mat-form-field>
+            </div>
+            <div class="input-container">
+                <mat-form-field class="example-full-width">
+                    <mat-label class="formInput">City</mat-label>
+                    <input class="formInput" matInput formControlName="city" />
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label class="formInput">Street</mat-label>
+                    <input class="formInput" matInput formControlName="street" />
+                </mat-form-field>
+            </div>
+            <div class="input-container">
+                <mat-form-field class="example-full-width">
+                    <mat-label class="formInput">Email</mat-label>
+                    <input class="formInput" matInput formControlName="email" />
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label class="formInput">Phone number</mat-label>
+                    <input class="formInput" matInput formControlName="phone" />
+                </mat-form-field>
+            </div>
+        </div>
+        <button class="actionButtons" type="button" mat-dialog-close mat-stroked-button color="warn">
+            Close
+        </button>
+    </form>
+</div>

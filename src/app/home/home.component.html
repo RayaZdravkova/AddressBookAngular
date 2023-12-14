@@ -1,0 +1,70 @@
+<form [formGroup]="filtrationForm" (ngSubmit)="searchUsers()">
+<div class="flex-container">
+    <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <mat-select id="gender" formControlName="gender">
+            <mat-option value="one">Male</mat-option>
+            <mat-option value="two">Female</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput id="name" type="text" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Coutry</mat-label>
+        <input matInput id="country" type="text" formControlName="country">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>City</mat-label>
+        <input matInput id="city" type="text" formControlName="city">
+    </mat-form-field>
+    <button class="actionButtons" type="submit" mat-dialog-close mat-stroked-button color="primary">
+        Search
+    </button>
+</div>
+
+</form>
+
+<table mat-table [dataSource]="usersDataArray">
+
+    <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef> First name </th>
+        <td mat-cell *matCellDef="let user"> {{user.name.first}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef> Last name </th>
+        <td mat-cell *matCellDef="let user"> {{user.name.last}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+        <th class="hideOnSmallScreen"  mat-header-cell *matHeaderCellDef> Gender </th>
+        <td class="hideOnSmallScreen" mat-cell *matCellDef="let user"> {{user.gender}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="country" class="hideOnSmallScreen">
+        <th class="hideOnSmallScreen" mat-header-cell *matHeaderCellDef> Country </th>
+        <td class="hideOnSmallScreen" mat-cell *matCellDef="let user"> {{user.location.country}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="city" class="hideOnSmallScreen">
+        <th class="hideOnSmallScreen" mat-header-cell *matHeaderCellDef> City </th>
+        <td class="hideOnSmallScreen" mat-cell *matCellDef="let user"> {{user.location.city}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="street" class="hideOnSmallScreen">
+        <th class="hideOnSmallScreen" mat-header-cell *matHeaderCellDef> Street </th>
+        <td class="hideOnSmallScreen" mat-cell *matCellDef="let user"> {{user.location.street.number + ' ' + user.location.street.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+        <th mat-header-cell *matHeaderCellDef class="column-title"> </th>
+        <td mat-cell *matCellDef="let user">
+            <button mat-stroked-button color="primary" (click)="onShowDetails(user)">Show details</button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+</table>

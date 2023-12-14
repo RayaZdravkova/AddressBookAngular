@@ -1,0 +1,55 @@
+@media screen and (max-width: 640px) {
+   .flex-container{
+    flex-direction: column;
+   }
+
+   .example-full-width{
+    width: 100%;
+   }
+
+   .photo-container{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    padding-bottom: 10px;
+   }
+
+   .actionButtons{
+    margin-left: 40% !important;
+   }
+  }
+
+.myInputs {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+#detailModalTitle {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+
+.actionButtons {
+    margin-left: 200px;
+    margin-bottom: 20px;
+}
+
+.formInput{
+    color:black;
+}
+
+.flex-container {
+    display: flex;
+}
+  
+.photo-container {
+    margin-right: 90px;
+}
+  
+.photo-container img {
+    max-width: 200px;
+    height: auto;
+}

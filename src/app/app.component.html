@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" id="menuIcon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span id="menuTitle">Address Book</span>
+    <a mat-button routerLink="/" class="top-menu-item"><mat-icon>home</mat-icon>Home</a>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [fixedInViewport]="true" [fixedTopGap]="60" mode="side">
+        <div class="side-nav-items">
+            <div>
+                <a (click)="sidenav.close()" mat-button routerLink="/"
+                    class="side-menu-item"><mat-icon>home</mat-icon>Home</a>
+            </div>
+        </div>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="main-content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
